@@ -45,6 +45,11 @@
 #define MPU6500_CS_PIN          PA4
 #define MPU6500_SPI_BUS         BUS_SPI1
 
+#define USE_IMU_ICM20602
+#define IMU_ICM20602_ALIGN      CW270_DEG
+#define ICM20602_CS_PIN         PA4
+#define ICM20602_SPI_BUS        BUS_SPI1
+
 // *************** SPI2 OSD *****************************
 #define USE_SPI_DEVICE_2
 #define SPI2_SCK_PIN            PB13
@@ -106,10 +111,15 @@
 #define I2C1_SCL                PB8
 #define I2C1_SDA                PB9
 
+#define USE_I2C_DEVICE_2
+#define I2C2_SCL                PB10
+#define I2C2_SDA                PB3
+#define USE_I2C_PULLUP
+
 #define DEFAULT_I2C_BUS         BUS_I2C1
 
 #define USE_BARO
-#define BARO_I2C_BUS            BUS_I2C1
+#define BARO_I2C_BUS            BUS_I2C2  // Changed to I2C2 for Tyro79
 #define USE_BARO_BMP280
 #define USE_BARO_MS5611
 #define USE_BARO_BMP085
