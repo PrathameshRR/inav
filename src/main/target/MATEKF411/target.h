@@ -18,8 +18,7 @@
 #pragma once
 
 #define TARGET_BOARD_IDENTIFIER "MK41"
-
-#define USBD_PRODUCT_STRING  "MatekF411"
+#define USBD_PRODUCT_STRING     "MATEKF411"
 
 #define LED0                    PC13
 #define LED1                    PC14
@@ -107,13 +106,9 @@
 
 // *************** I2C /Baro/Mag/Pitot ********************
 #define USE_I2C
-#define USE_I2C_DEVICE_1
-#define I2C1_SCL                PB8
-#define I2C1_SDA                PB9
-
 #define USE_I2C_DEVICE_2
-#define I2C2_SCL                PB10
-#define I2C2_SDA                PB3
+#define I2C2_SCL PB10
+#define I2C2_SDA PB3
 #define USE_I2C_PULLUP
 
 #define DEFAULT_I2C_BUS         BUS_I2C1
