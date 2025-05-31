@@ -34,20 +34,22 @@
 #define SPI1_MISO_PIN           PA6
 #define SPI1_MOSI_PIN           PA7
 
-#define USE_IMU_MPU6000
-#define IMU_MPU6000_ALIGN       CW180_DEG
-#define MPU6000_CS_PIN          PA4
-#define MPU6000_SPI_BUS         BUS_SPI1
-
-#define USE_IMU_MPU6500
-#define IMU_MPU6500_ALIGN       CW180_DEG
-#define MPU6500_CS_PIN          PA4
-#define MPU6500_SPI_BUS         BUS_SPI1
-
+// Primary IMU configuration for Tyro79 - ICM20602
 #define USE_IMU_ICM20602
 #define IMU_ICM20602_ALIGN      CW270_DEG
-#define ICM20602_CS_PIN         PA4
+#define ICM20602_CS_PIN         PB2  // Changed from PA4 to PB2 for Tyro79
 #define ICM20602_SPI_BUS        BUS_SPI1
+
+// Alternative IMU configurations (disabled by default)
+//#define USE_IMU_MPU6000
+//#define IMU_MPU6000_ALIGN       CW180_DEG
+//#define MPU6000_CS_PIN          PA4
+//#define MPU6000_SPI_BUS         BUS_SPI1
+
+//#define USE_IMU_MPU6500
+//#define IMU_MPU6500_ALIGN       CW180_DEG
+//#define MPU6500_CS_PIN          PA4
+//#define MPU6500_SPI_BUS         BUS_SPI1
 
 // *************** SPI2 OSD *****************************
 #define USE_SPI_DEVICE_2
@@ -107,19 +109,19 @@
 // *************** I2C /Baro/Mag/Pitot ********************
 #define USE_I2C
 #define USE_I2C_DEVICE_2
-#define I2C2_SCL PB10
-#define I2C2_SDA PB3
+#define I2C2_SCL                PB10
+#define I2C2_SDA                PB3
 #define USE_I2C_PULLUP
 
-#define DEFAULT_I2C_BUS         BUS_I2C1
+#define DEFAULT_I2C_BUS         BUS_I2C2  // Changed to I2C2 for Tyro79 BMP280
 
 #define USE_BARO
-#define BARO_I2C_BUS            BUS_I2C2  // Changed to I2C2 for Tyro79
-#define USE_BARO_BMP280
-#define USE_BARO_MS5611
-#define USE_BARO_BMP085
-#define USE_BARO_DPS310
-#define USE_BARO_SPL06
+#define BARO_I2C_BUS            BUS_I2C2
+#define USE_BARO_BMP280         // Primary barometer for Tyro79
+//#define USE_BARO_MS5611       // Disabled unused barometers
+//#define USE_BARO_BMP085
+//#define USE_BARO_DPS310
+//#define USE_BARO_SPL06
 
 #define TEMPERATURE_I2C_BUS     BUS_I2C1
 

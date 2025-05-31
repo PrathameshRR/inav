@@ -34,7 +34,7 @@ timerHardware_t timerHardware[] = {
     DEF_TIM(TIM2, CH3, PB10, TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 0), // S6  D(1,1,3)
     DEF_TIM(TIM2, CH1, PA15, TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 0), // S7  D(1,5,3) - clash with S2
 
-    DEF_TIM(TIM1, CH1, PA8,  TIM_USE_MC_SERVO | TIM_USE_FW_SERVO | TIM_USE_LED, 0, 0), // S8/LED  D(2,1,6)
+    DEF_TIM(TIM1, CH1, PA8,  TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 0), // S8 - Primary Servo Output
     DEF_TIM(TIM5, CH1, PA0,  TIM_USE_PPM,   0, 0), //use rssi pad for PPM/softserial_tx1
 
     //DEF_TIM(TIM5, CH3, PA2,  TIM_USE_ANY,   0, 0), // TX2
