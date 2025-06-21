@@ -17,6 +17,18 @@
 
 #pragma once
 
+// Enable required INAV features for TCMMF411
+#define USE_GPS
+#define USE_NAV
+#define USE_BARO
+#define USE_RANGEFINDER
+#define USE_PITOT
+#define USE_OPFLOW
+#define USE_VTX
+#define USE_OSD
+#define USE_TELEMETRY
+#define USE_CRSF
+
 #define TARGET_BOARD_IDENTIFIER "TCMM"
 #define USBD_PRODUCT_STRING     "Tyro79 Pro"
 
@@ -85,6 +97,7 @@
 #define USE_BARO
 #define BARO_I2C_BUS            BUS_I2C1
 #define USE_BARO_BMP280
+
 #define TEMPERATURE_I2C_BUS     BUS_I2C1
 #define PITOT_I2C_BUS           BUS_I2C1
 
@@ -128,7 +141,32 @@
 
 #define MAX_PWM_OUTPUT_PORTS    7
 
+// Provide default values for PINIOBOX settings to fix build errors
 #define SETTING_PINIO_BOX1_DEFAULT 0
 #define SETTING_PINIO_BOX2_DEFAULT 0
 #define SETTING_PINIO_BOX3_DEFAULT 0
 #define SETTING_PINIO_BOX4_DEFAULT 0
+
+// Default magnetometer settings for TCMMF411
+#define SETTING_MAG_HARDWARE_DEFAULT         0 // AUTODETECT
+#define SETTING_ALIGN_MAG_DEFAULT            ALIGN_DEFAULT
+#define SETTING_MAG_DECLINATION_DEFAULT      0
+#define SETTING_MAG_CALIBRATION_TIME_DEFAULT 30
+#define SETTING_ALIGN_MAG_ROLL_DEFAULT       0
+#define SETTING_ALIGN_MAG_PITCH_DEFAULT      0
+#define SETTING_ALIGN_MAG_YAW_DEFAULT        0
+#define SETTING_MAGGAIN_X_DEFAULT            1024
+#define SETTING_MAGGAIN_Y_DEFAULT            1024
+#define SETTING_MAGGAIN_Z_DEFAULT            1024
+
+// For build system: force-include this file in all sources with -include "src/main/target/TCMMF411/target.h"
+// Example for CMake: add_compile_options(-include "${CMAKE_SOURCE_DIR}/src/main/target/TCMMF411/target.h")
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+extern const char * const table_mag_hardware[];
+extern const char * const table_baro_hardware[];
+#ifdef __cplusplus
+}
+#endif

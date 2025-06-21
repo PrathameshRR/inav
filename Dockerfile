@@ -30,14 +30,16 @@ RUN tar -xjf /tmp/gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2 -C /op
 RUN mkdir -p /home/inav
 
 # if either of these are already set the same as the user's machine, leave them be and ignore the error
-RUN addgroup --gid $GROUP_ID inav; exit 0;
-RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID inav; exit 0;
+RUN groupadd -g ${GROUP_ID:-1000} inav || true && \
+    useradd -m -u ${USER_ID:-1000} -g ${GROUP_ID:-1000} inav || true
 
 # Set permissions after user is created
 RUN chown -R inav:inav /home/inav
 
 # Add GCC ARM toolchain to PATH
 ENV PATH="/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:${PATH}"
+# Add CFLAGS to force-include the TCMMF411 target.h for all builds
+ENV CFLAGS="-include /src/src/main/target/TCMMF411/target.h"
 
 VOLUME /src
 

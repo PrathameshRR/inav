@@ -1,0 +1,5 @@
+target_stm32f411xe(TCMMF411)
+target_stm32f411xe(TCMMF411_FD_SFTSRL)
+target_stm32f411xe(TCMMF411_RSSI)
+target_stm32f411xe(TCMMF411_SFTSRL2)
+target_stm32f411xe(TCMMF4114)
